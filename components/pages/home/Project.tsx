@@ -38,17 +38,20 @@ export const Project = () => {
                       href={tech.url}
                       key={index}
                       target="_blank"
-                      className=" flex-shrink-0 w-[4em] h-[4em] m-2"
+                      className=" flex flex-shrink-0 bg-[#fff] h-[54px] w-[54px] rounded-[12px] shadow-md justify-center items-center m-2"
                     >
-                      <img
-                        src={tech.icon}
-                        title={tech.name
-                          .split(" ")
-                          .map(
-                            (word) => word.charAt(0).toUpperCase() + word.slice(1)
-                          )
-                          .join(" ")}
-                      />
+                      <div className="flex h-[34px] w-[34px] border border-white justify-center items-center">
+                        <img
+                          className="h-[28px]"
+                          src={tech.icon}
+                          title={tech.name
+                            .split(" ")
+                            .map(
+                              (word) => word.charAt(0).toUpperCase() + word.slice(1)
+                            )
+                            .join(" ")}
+                        />
+                      </div>
                     </a>
                   ))}
                 </div>

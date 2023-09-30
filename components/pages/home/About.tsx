@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { Members } from './info/teamInfo'
 
 const About = () => {
