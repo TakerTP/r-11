@@ -25,8 +25,10 @@ const Slider: React.FC = () => {
   }, []);
 
   return (
-    <div>
-      <img className="h-[30rem]" src={images[currentIndex]} />
+    <div className="flex bg-[#fff] h-[25rem] w-[25rem] rounded-[3.5rem] justify-center items-center">
+      <div className="flex h-[14rem] w-[14rem] border border-white justify-center items-center">
+        <img className="h-[14rem]" src={images[currentIndex]} />
+      </div>
     </div>
   );
 };
