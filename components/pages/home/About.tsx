@@ -20,7 +20,7 @@ const About = () => {
         <div className="flex flex-wrap justify-center -m-4">
           {/* Mapping start */}
           {Members.map((member, index) => (
-            <div key={index} className="p-4 lg:w-1/4 md:w-1/2">
+            <div key={index} className="p-4 lg:w-1/4 md:w-1/2 sm:w-full">
               <div className="h-full flex flex-col items-center text-center">
                 <img
                   className="flex-shrink-0 rounded-full w-56 h-56 object-cover object-center mb-4"
