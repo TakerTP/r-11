@@ -125,7 +125,7 @@ export const Hero = () => {
         
      <div className='px-5 text-center'>
    
-      <Whyus faqData={faqData} />
+      {/* <Whyus faqData={faqData} /> */}
       
     </div>
     </section>
