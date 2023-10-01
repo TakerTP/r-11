@@ -15,7 +15,7 @@ export const Footer = () => {
             rel="noopener noreferrer"
             target="_blank"
           >
-            @R11
+            @TechInno Solution
           </a>
         </p>
         {/* for future branding */}

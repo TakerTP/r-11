@@ -6,7 +6,7 @@ export const Technology = () => {
     <section className="bg-gray-700 body-font pb-10">
       <div className="container px-5 lg:pt-24 md:pt-24 sm:pt-[11.2rem] mx-auto">
         <div className="flex flex-col text-center w-full mb-20">
-          <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">
+        <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
             Technology
           </h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-white">

@@ -4,9 +4,9 @@ export const Testimonial = () => {
   return (
     <section className="bg-gray-700 text-gray-600 body-font pb-10">
       <div className="container px-5 lg:pt-24 md:pt-24 sm:pt-[11.2rem] mx-auto">
-        <h1 className="sm:text-3xl text-2xl font-medium title-font text-white mb-12 text-center">
-          Testimonials
-        </h1>
+        <h1 className=" text-center mb-5 title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
+           Testimonials
+          </h1>
         <div className="flex flex-wrap justify-center -m-4">
           <div className="p-4 md:w-1/2 w-full">
             <div className="h-full bg-gray-100 p-8 rounded">

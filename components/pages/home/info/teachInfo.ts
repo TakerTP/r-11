@@ -178,7 +178,7 @@ type Project = {
       demo: "",
     },
     {
-      title: "",
+      title: "Food Application",
       description: ``,
       techStack: [],
       github: "",
