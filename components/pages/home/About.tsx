@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { Members } from './info/teamInfo'
 
-const About = () => {
+ export const About = () => {
 
   const [isDesktop, setIsDesktop] = useState(false);
 
@@ -107,5 +107,3 @@ const About = () => {
     </section>
   )
 }
-
-export default About

@@ -116,18 +116,8 @@ export const Hero = () => {
               "At TechInno Solution, we are your trusted partner for comprehensive IT solutions that drive innovation, elevate user experiences, and empower businesses to thrive in the digital age."
             }
           </p>
-         
         </div>
-        
       </div>
-        
-
-        
-     <div className='px-5 text-center'>
-   
-      {/* <Whyus faqData={faqData} /> */}
-      
-    </div>
     </section>
     
   )
