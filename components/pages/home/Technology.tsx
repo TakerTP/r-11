@@ -1,10 +1,32 @@
 import React from 'react'
+import { useEffect, useState } from 'react';
+
 import { Techs } from './info/teachInfo'
 
 export const Technology = () => {
+
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 768); // Adjust the breakpoint as needed
+    };
+
+    // Initial check
+    handleResize();
+
+    // Listen for window resize events
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup the event listener
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <section className="bg-gray-700 body-font pb-10">
-      <div className="container px-5 lg:pt-24 md:pt-24 sm:pt-[11.2rem] mx-auto">
+      <div className={`container px-5 ${isDesktop ? 'lg:pt-24 md:pt-24 sm:pt-[11.2rem]' : 'pt-10'} mx-auto`}>
         <div className="flex flex-col text-center w-full mb-20">
         <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
             Technology

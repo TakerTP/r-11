@@ -8,7 +8,7 @@ export const Project = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsDesktop(window.innerWidth > 768); // Adjust the breakpoint as needed
+      setIsDesktop(window.innerWidth > 640); // Adjust the breakpoint as needed
     };
 
     // Initial check
@@ -26,7 +26,7 @@ export const Project = () => {
   return (
     
 <section id="projects" className="text-gray-600 body-font mb-10">
-      <div className="container px-5 lg:pt-24 md:pt-24 sm:pt-[11.2rem] mx-auto">
+      <div className={`container px-5 ${isDesktop ? 'lg:pt-24 md:pt-24 sm:pt-[11.2rem]' : 'pt-[11.2rem]'} mx-auto`}>
         <div className="flex flex-col text-center w-full mb-20">
         <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-black">
             Project
@@ -35,7 +35,7 @@ export const Project = () => {
         </div>
         <div className="flex flex-wrap -mx-4 -mb-10 text-center">
           {Projects.map((project, index) => (
-            <div key={index} className="sm:w-full lg:w-1/2 mb-10 px-4">
+            <div key={index} className={`${isDesktop ? 'sm:w-full lg:w-1/2' : 'w-full'} mb-10 px-4`}>
               <div className="rounded-lg h-64 overflow-hidden">
                 <img
                   alt="content"
@@ -53,7 +53,7 @@ export const Project = () => {
               </p>
 
               <div className="flex w-full justify-center items-center">
-              <div className={`flex justify-center ${isDesktop ? 'overflow-x-auto' : 'flex-wrap'}`}>
+              <div className={`flex ${isDesktop ? 'overflow-x-auto' : 'overflow-x-auto'}`}>
   {project.techStack.map((tech, index) => (
     <a
       href={tech.url}

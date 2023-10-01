@@ -15,17 +15,33 @@ const images = [
 
 const Slider: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 2000);
 
-    return () => clearInterval(interval);
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 768); // Adjust the breakpoint as needed
+    };
+
+    // Initial check
+    handleResize();
+
+    // Listen for window resize events
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup the event listener
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('resize', handleResize);
+    }
   }, []);
 
   return (
-    <div className="flex bg-[#fff] h-[25rem] w-[25rem] rounded-[3.5rem] justify-center items-center">
+    <div className={`flex bg-[#fff] ${isDesktop ? 'sm:h-[23rem] sm:w-[23rem]' : 'h-[20rem] w-[20rem]'} rounded-[3.5rem] justify-center items-center`}>
       <div className="flex h-[14rem] w-[14rem] border border-white justify-center items-center">
         <img className="h-[14rem]" src={images[currentIndex]} />
       </div>

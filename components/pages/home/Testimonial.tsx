@@ -1,10 +1,31 @@
 import React from 'react'
+import { useEffect, useState } from 'react';
 
 export const Testimonial = () => {
+
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 768); // Adjust the breakpoint as needed
+    };
+
+    // Initial check
+    handleResize();
+
+    // Listen for window resize events
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup the event listener
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <section className="bg-gray-700 text-gray-600 body-font pb-10">
-      <div className="container px-5 lg:pt-24 md:pt-24 sm:pt-[11.2rem] mx-auto">
-        <h1 className=" text-center mb-5 title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
+      <div className={`container px-5 ${isDesktop ? 'lg:pt-24 md:pt-24 sm:pt-[11.2rem]' : 'pt-10'} mx-auto`}>
+        <h1 className=" text-center title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
            Testimonials
           </h1>
         <div className="flex flex-wrap justify-center -m-4">

@@ -1,6 +1,6 @@
 
 import Slider from './Slider'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Whyus from '../../Faq';
 
 
@@ -79,20 +79,39 @@ export const Hero = () => {
     // Add more FAQ items here
   ];
 
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 768); // Adjust the breakpoint as needed
+    };
+
+    // Initial check
+    handleResize();
+
+    // Listen for window resize events
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup the event listener
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <section id="home" className="bg-gray-700 text-white body-font">
-      <div className="container mx-auto flex lg:pt-24 md:pt-24 sm:pt-[11.2rem] md:flex-row flex-col items-center">
+      <div className={`container mx-auto flex ${isDesktop ? 'lg:pt-24 md:pt-24 sm:pt-[11.2rem]' : 'pt-[11.2rem]'} md:flex-row flex-col items-center`}>
         <div className="lg:flex-grow flex flex-col mb-16 md:mb-0 items-center text-center">
           <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
             TechInno Solution
           </h1>
-          <hr className="h-px mt-8 w-1/5 self-center bg-gray-200 border-0 dark:bg-white" />
+          <hr className={`h-px ${isDesktop ? 'mt-8' : 'mt-2'} w-1/5 self-center bg-gray-200 border-0 dark:bg-white`} />
           
           <div className="flex justify-center items-center bg-gray-700">
             <img className="h-[30rem]" src="" />
             <Slider />
           </div>
-          <p className="sm:pr-12 sm:pl-12 pr-20 pl-20 mb-6 leading-relaxed">
+          <p className={`${isDesktop ? 'sm:pr-12 sm:pl-12 pr-20 pl-20 mb-6' : 'pr-6 pl-6 mb-4'} leading-relaxed`}>
             {
               "At TechInno Solution, we are your trusted partner for comprehensive IT solutions that drive innovation, elevate user experiences, and empower businesses to thrive in the digital age."
             }
