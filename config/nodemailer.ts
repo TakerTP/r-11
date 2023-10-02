@@ -1,17 +1,24 @@
-const nodemailer = require("nodemailer")
+const nodemailer = require("nodemailer");
 
-const email = process.env.NEXT_PUBLIC_EMAIL
-const password = process.env.NEXT_PUBLIC_EMAIL_PASS
+const email = process.env.NEXT_PUBLIC_EMAIL || null;
+const password = process.env.NEXT_PUBLIC_EMAIL_PASS || null;
+
+if (email && password) {
+  console.log(email, password);
+  console.log("working");
+} else {
+  console.log("couldn't get secret var");
+}
 
 export const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: email,
-        pass: password, 
-    }
-})
+  service: "gmail",
+  auth: {
+    user: email,
+    pass: password,
+  },
+});
 
 export const mailOptions = {
-    from: email,
-    to: email,
-}
+  from: email,
+  to: email,
+};
